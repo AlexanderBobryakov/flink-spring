@@ -9,8 +9,6 @@ public class FlinkConfig {
 
     @Bean
     public StreamExecutionEnvironment streamExecutionEnvironment() {
-        final StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
-        executionEnvironment.disableOperatorChaining();
-        return executionEnvironment;
+        return StreamExecutionEnvironment.getExecutionEnvironment();
     }
 }
