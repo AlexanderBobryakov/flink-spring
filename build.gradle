@@ -1,0 +1,108 @@
+import com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformer
+
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.springframework.boot' version '2.7.7'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'jacoco'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'pmd'
+}
+
+group 'com.asbobryakov'
+sourceCompatibility = '11'
+version = '0.0.1-SNAPSHOT'
+mainClassName = 'com.asbobryakov.flink_spring.Main'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+        exclude group: 'org.apache.flink', module: 'flink-shaded-jackson'
+    }
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+}
+
+pmd {
+    consoleOutput = true
+    toolVersion = "6.52.0"
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set('flinkVersion', '1.17.0')
+    set('jacksonVersion', '2.14.1')
+    set('awaitilityVersion', '4.2.0')
+    set('testcontainersVersion', "1.18.0")
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:${jacksonVersion}"
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly "org.apache.flink:flink-streaming-java:${flinkVersion}"
+    compileOnly 'org.projectlombok:lombok'
+
+    testImplementation 'ch.qos.logback:logback-classic:1.2.9'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation "org.apache.flink:flink-streaming-java:${flinkVersion}:tests"
+    testImplementation "org.apache.flink:flink-test-utils:${flinkVersion}"
+    testImplementation "org.apache.flink:flink-statebackend-rocksdb:${flinkVersion}"
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation "org.awaitility:awaitility:${awaitilityVersion}"
+    testImplementation "commons-io:commons-io:2.11.0"
+
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
+    }
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        showExceptions = true
+        showStandardStreams = false
+        showCauses = true
+        showStackTraces = true
+        exceptionFormat = "full"
+        events("standardOut", "started", "passed", "skipped", "failed")
+    }
+    reports {
+        junitXml.required = true
+        html.required = true
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:serial" << "-Werror"
+}
+
+shadowJar {
+    dependsOn 'check'
+    zip64 true
+    mergeServiceFiles()
+    append 'META-INF/spring.handlers'
+    append 'META-INF/spring.schemas'
+    append 'META-INF/spring.tooling'
+    transform(PropertiesFileTransformer) {
+        paths = ['META-INF/spring.factories']
+        mergeStrategy = "append"
+    }
+}
