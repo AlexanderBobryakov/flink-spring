@@ -1,3 +1,18 @@
 flink:
   app-name: flink-spring
   submit-jobs-on-app-start: true
+
+jobs:
+  click-to-product-job:
+    enabled: true
+    operators:
+      deduplicator:
+        ttl:
+          app: 7d
+
+kafka:
+  group-id: group_id
+  bootstrap-servers: localhost:29092
+  topics:
+    click-topic: 'click-topic'
+    product-topic: 'product-topic'
