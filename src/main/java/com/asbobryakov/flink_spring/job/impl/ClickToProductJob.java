@@ -2,7 +2,7 @@ package com.asbobryakov.flink_spring.job.impl;
 
 import com.asbobryakov.flink_spring.job.FlinkJob;
 import com.asbobryakov.flink_spring.operator.filter.ClickMessageWithPlatformFilter;
-import com.asbobryakov.flink_spring.operator.mapper.ClickMessageToProductSinkMessageMapFunction;
+import com.asbobryakov.flink_spring.operator.mapper.ClickMessageToWrappedProductSinkMessageMapFunction;
 import com.asbobryakov.flink_spring.operator.mapper.Deduplicator;
 import com.asbobryakov.flink_spring.operator.process.StreamSpliterator;
 import com.asbobryakov.flink_spring.properties.ClickToProductJobProperties;
@@ -10,6 +10,7 @@ import com.asbobryakov.flink_spring.properties.ClickToProductJobProperties.Opera
 import com.asbobryakov.flink_spring.schema.ClickMessage;
 import com.asbobryakov.flink_spring.schema.Platform;
 import com.asbobryakov.flink_spring.schema.ProductMessage;
+import com.asbobryakov.flink_spring.schema.WrappedSinkMessage;
 import com.asbobryakov.flink_spring.sink.SinkProvider;
 import com.asbobryakov.flink_spring.source.SourceBinder;
 
@@ -29,7 +30,7 @@ import lombok.AllArgsConstructor;
 public class ClickToProductJob extends FlinkJob {
     private final ClickToProductJobProperties properties;
     private final SourceBinder<ClickMessage> sourceBinder;
-    private final SinkProvider<ProductMessage> sinkProvider;
+    private final SinkProvider<WrappedSinkMessage<ProductMessage>> sinkProvider;
 
     @Override
     public void registerJob(StreamExecutionEnvironment env) {
@@ -54,7 +55,7 @@ public class ClickToProductJob extends FlinkJob {
 
         final var sink = sinkProvider.createSink();
         webStream.union(deduplicatedAppStream)
-            .flatMap(new ClickMessageToProductSinkMessageMapFunction())
+            .flatMap(new ClickMessageToWrappedProductSinkMessageMapFunction())
             .uid("map_click_to_product_id").name("map_click_to_product")
             .sinkTo(sink)
             .uid("sink_product_message_id").name("sink_product_message");

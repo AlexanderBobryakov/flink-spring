@@ -15,4 +15,3 @@ kafka:
   bootstrap-servers: localhost:29092
   topics:
     click-topic: 'click-topic'
-    product-topic: 'product-topic'

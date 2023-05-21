@@ -2,6 +2,7 @@ package com.asbobryakov.flink_spring.sink;
 
 import com.asbobryakov.flink_spring.properties.KafkaProperties;
 import com.asbobryakov.flink_spring.schema.ProductMessage;
+import com.asbobryakov.flink_spring.schema.WrappedSinkMessage;
 
 import org.apache.flink.api.common.serialization.SerializationSchema;
 import org.apache.flink.api.connector.sink2.Sink;
@@ -15,16 +16,16 @@ import static org.apache.flink.connector.base.DeliveryGuarantee.NONE;
 
 @Component
 @RequiredArgsConstructor
-public class ProductMessageKafkaSinkProvider implements SinkProvider<ProductMessage> {
+public class WrappedProductMessageKafkaSinkProvider implements SinkProvider<WrappedSinkMessage<ProductMessage>> {
     private final KafkaProperties kafkaProperties;
-    private final SerializationSchema<ProductMessage> serializationProductMessageSchema;
+    private final SerializationSchema<WrappedSinkMessage<ProductMessage>> serializationProductMessageSchema;
 
     @Override
-    public Sink<ProductMessage> createSink() {
-        return KafkaSink.<ProductMessage>builder()
+    public Sink<WrappedSinkMessage<ProductMessage>> createSink() {
+        return KafkaSink.<WrappedSinkMessage<ProductMessage>>builder()
                    .setBootstrapServers(kafkaProperties.getBootstrapServers())
-                   .setRecordSerializer(KafkaRecordSerializationSchema.<ProductMessage>builder()
-                                            .setTopic(kafkaProperties.getTopics().getProductTopic())
+                   .setRecordSerializer(KafkaRecordSerializationSchema.<WrappedSinkMessage<ProductMessage>>builder()
+                                            .setTopicSelector(wrappedMessage -> wrappedMessage.getMeta().getTargetTopicName())
                                             .setValueSerializationSchema(serializationProductMessageSchema)
                                             .build())
                    .setDeliveryGuarantee(NONE)

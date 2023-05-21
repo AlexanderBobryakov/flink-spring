@@ -28,7 +28,5 @@ public class KafkaProperties {
     public static class Topics {
         @NotEmpty(message = "Click Topic cannot be null or empty")
         private final String clickTopic;
-        @NotEmpty(message = "Product Topic cannot be null or empty")
-        private final String productTopic;
     }
 }
