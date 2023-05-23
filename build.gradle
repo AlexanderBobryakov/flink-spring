@@ -61,6 +61,8 @@ dependencies {
     testImplementation "org.apache.flink:flink-streaming-java:${flinkVersion}:tests"
     testImplementation "org.apache.flink:flink-test-utils:${flinkVersion}"
     testImplementation "org.apache.flink:flink-statebackend-rocksdb:${flinkVersion}"
+    testImplementation "org.apache.flink:flink-streaming-java:${flinkVersion}:tests"
+    testImplementation "org.apache.flink:flink-test-utils:${flinkVersion}"
     testImplementation 'org.testcontainers:junit-jupiter'
     testImplementation "org.awaitility:awaitility:${awaitilityVersion}"
     testImplementation "commons-io:commons-io:2.11.0"
