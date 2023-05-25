@@ -36,6 +36,7 @@ public class JobE2ETest {
         kafka.createTopicsIfNeeded(productTopic);
         final var clickMessage = aClickMessage().withProductTopic(productTopic).withPlatform(APP).build();
         kafka.sendMessage(kafkaProperties.getTopics().getClickTopic(), clickMessage);
+        kafka.sendMessage(kafkaProperties.getTopics().getClickTopic(), clickMessage);
 
         @Cleanup final var jobClient = jobStarter.startJobs();
 
