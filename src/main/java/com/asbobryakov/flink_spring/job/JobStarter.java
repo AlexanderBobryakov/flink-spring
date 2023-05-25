@@ -1,6 +1,5 @@
 package com.asbobryakov.flink_spring.job;
 
-import org.apache.flink.core.execution.JobClient;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +17,7 @@ public class JobStarter {
     private final List<FlinkJob> jobs;
 
     @SneakyThrows
-    public JobClient startJobs() {
+    public AutoCloseableJobClient startJobs() {
         if (jobs.isEmpty()) {
             log.info("No Jobs found for start");
             return null;
@@ -27,6 +26,6 @@ public class JobStarter {
             log.info("Register job '{}'", job.getClass().getSimpleName());
             job.registerJob(environment);
         }
-        return environment.executeAsync();
+        return new AutoCloseableJobClient(environment.executeAsync());
     }
 }
