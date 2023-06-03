@@ -1,7 +1,6 @@
 package com.asbobryakov.flink_spring.testutils.annotation;
 
 import com.asbobryakov.flink_spring.testutils.extension.KafkaContainerExtension;
-
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.lang.annotation.Inherited;

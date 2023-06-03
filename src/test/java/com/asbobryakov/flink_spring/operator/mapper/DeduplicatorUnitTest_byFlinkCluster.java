@@ -2,7 +2,7 @@ package com.asbobryakov.flink_spring.operator.mapper;
 
 import com.asbobryakov.flink_spring.testutils.annotation.WithFlinkCluster;
 import com.asbobryakov.flink_spring.testutils.flink.sink.TestListSink;
-
+import lombok.SneakyThrows;
 import org.apache.flink.api.common.time.Time;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,8 +12,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
-
-import lombok.SneakyThrows;
 
 import static java.lang.String.format;
 import static org.junit.jupiter.api.Assertions.assertEquals;

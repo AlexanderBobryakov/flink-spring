@@ -1,17 +1,15 @@
 package com.asbobryakov.flink_spring.properties;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.apache.flink.api.common.time.Time;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
 
+import javax.validation.constraints.NotNull;
 import java.time.Duration;
 import java.util.Map;
 import java.util.Optional;
-
-import javax.validation.constraints.NotNull;
-
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 @ConfigurationProperties("jobs.click-to-product-job")
 @ConstructorBinding

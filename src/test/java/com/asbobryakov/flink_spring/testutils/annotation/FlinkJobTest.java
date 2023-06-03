@@ -2,7 +2,6 @@ package com.asbobryakov.flink_spring.testutils.annotation;
 
 import com.asbobryakov.flink_spring.config.FlinkConfig;
 import com.asbobryakov.flink_spring.config.PropertiesConfig;
-
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 

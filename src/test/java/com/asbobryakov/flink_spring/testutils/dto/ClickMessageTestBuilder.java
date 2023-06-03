@@ -1,15 +1,14 @@
 package com.asbobryakov.flink_spring.testutils.dto;
 
-import com.asbobryakov.flink_spring.schema.ClickMessage;
-import com.asbobryakov.flink_spring.schema.Platform;
+import com.asbobryakov.flink_spring.schema.kafka.ClickMessage;
+import com.asbobryakov.flink_spring.schema.kafka.Platform;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.With;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.With;
 
 import static lombok.AccessLevel.PRIVATE;
 import static lombok.AccessLevel.PUBLIC;

@@ -1,7 +1,7 @@
 package com.asbobryakov.flink_spring.testutils.kafka;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import lombok.SneakyThrows;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -14,8 +14,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import lombok.SneakyThrows;
 
 import static com.asbobryakov.flink_spring.config.ObjectMapperConfig.createObjectMapper;
 import static java.util.stream.Collectors.toList;

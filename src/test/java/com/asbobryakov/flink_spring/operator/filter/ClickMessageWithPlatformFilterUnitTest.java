@@ -1,16 +1,15 @@
 package com.asbobryakov.flink_spring.operator.filter;
 
-import com.asbobryakov.flink_spring.schema.ClickMessage;
-import com.asbobryakov.flink_spring.schema.Platform;
-
+import com.asbobryakov.flink_spring.schema.kafka.ClickMessage;
+import com.asbobryakov.flink_spring.schema.kafka.Platform;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.asbobryakov.flink_spring.schema.Platform.Enum.APP;
-import static com.asbobryakov.flink_spring.schema.Platform.Enum.WEB;
+import static com.asbobryakov.flink_spring.schema.kafka.Platform.Enum.APP;
+import static com.asbobryakov.flink_spring.schema.kafka.Platform.Enum.WEB;
 import static com.asbobryakov.flink_spring.testutils.dto.ClickMessageTestBuilder.aClickMessage;
 import static java.lang.String.format;
 import static org.junit.jupiter.api.Assertions.assertEquals;

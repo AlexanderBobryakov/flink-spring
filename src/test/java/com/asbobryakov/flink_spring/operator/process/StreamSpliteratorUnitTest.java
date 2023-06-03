@@ -1,5 +1,6 @@
 package com.asbobryakov.flink_spring.operator.process;
 
+import lombok.Cleanup;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.streaming.runtime.streamrecord.StreamRecord;
 import org.apache.flink.streaming.util.ProcessFunctionTestHarnesses;
@@ -9,8 +10,6 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import lombok.Cleanup;
 
 import static java.lang.String.format;
 import static org.junit.jupiter.api.Assertions.assertEquals;

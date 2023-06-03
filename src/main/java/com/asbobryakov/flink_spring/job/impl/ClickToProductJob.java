@@ -7,13 +7,13 @@ import com.asbobryakov.flink_spring.operator.mapper.Deduplicator;
 import com.asbobryakov.flink_spring.operator.process.StreamSpliterator;
 import com.asbobryakov.flink_spring.properties.ClickToProductJobProperties;
 import com.asbobryakov.flink_spring.properties.ClickToProductJobProperties.OperatorsProperties.DeduplicatorProperties.DeduplicatorName;
-import com.asbobryakov.flink_spring.schema.ClickMessage;
-import com.asbobryakov.flink_spring.schema.Platform;
-import com.asbobryakov.flink_spring.schema.ProductMessage;
-import com.asbobryakov.flink_spring.schema.WrappedSinkMessage;
+import com.asbobryakov.flink_spring.schema.kafka.ClickMessage;
+import com.asbobryakov.flink_spring.schema.kafka.Platform;
+import com.asbobryakov.flink_spring.schema.kafka.ProductMessage;
+import com.asbobryakov.flink_spring.schema.kafka.WrappedSinkMessage;
 import com.asbobryakov.flink_spring.sink.SinkProvider;
 import com.asbobryakov.flink_spring.source.SourceBinder;
-
+import lombok.AllArgsConstructor;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.util.OutputTag;
@@ -21,8 +21,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
-
-import lombok.AllArgsConstructor;
 
 @Component
 @AllArgsConstructor

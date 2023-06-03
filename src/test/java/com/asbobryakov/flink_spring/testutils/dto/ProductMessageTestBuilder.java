@@ -1,13 +1,12 @@
 package com.asbobryakov.flink_spring.testutils.dto;
 
-import com.asbobryakov.flink_spring.schema.Platform;
-import com.asbobryakov.flink_spring.schema.ProductMessage;
-
-import java.util.UUID;
-
+import com.asbobryakov.flink_spring.schema.kafka.Platform;
+import com.asbobryakov.flink_spring.schema.kafka.ProductMessage;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.With;
+
+import java.util.UUID;
 
 import static lombok.AccessLevel.PRIVATE;
 import static lombok.AccessLevel.PUBLIC;

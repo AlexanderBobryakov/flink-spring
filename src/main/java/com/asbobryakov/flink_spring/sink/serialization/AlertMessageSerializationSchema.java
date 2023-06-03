@@ -1,7 +1,6 @@
 package com.asbobryakov.flink_spring.sink.serialization;
 
-import com.asbobryakov.flink_spring.schema.kafka.ProductMessage;
-import com.asbobryakov.flink_spring.schema.kafka.WrappedSinkMessage;
+import com.asbobryakov.flink_spring.schema.kafka.AlertMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -12,7 +11,7 @@ import static com.asbobryakov.flink_spring.config.ObjectMapperConfig.createObjec
 
 @Component
 @RequiredArgsConstructor
-class WrappedProductMessageSerializationSchema implements SerializationSchema<WrappedSinkMessage<ProductMessage>> {
+class AlertMessageSerializationSchema implements SerializationSchema<AlertMessage> {
     private static final long serialVersionUID = 1;
 
     private transient ObjectMapper objectMapper;
@@ -24,7 +23,7 @@ class WrappedProductMessageSerializationSchema implements SerializationSchema<Wr
 
     @Override
     @SneakyThrows
-    public byte[] serialize(WrappedSinkMessage<ProductMessage> element) {
-        return objectMapper.writeValueAsBytes(element.getMessage());
+    public byte[] serialize(AlertMessage element) {
+        return objectMapper.writeValueAsBytes(element);
     }
 }

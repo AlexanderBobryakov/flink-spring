@@ -1,19 +1,17 @@
 package com.asbobryakov.flink_spring.job.impl;
 
 import com.asbobryakov.flink_spring.properties.ClickToProductJobProperties;
-import com.asbobryakov.flink_spring.schema.Platform;
-import com.asbobryakov.flink_spring.schema.ProductMessage;
-import com.asbobryakov.flink_spring.schema.WrappedSinkMessage;
+import com.asbobryakov.flink_spring.schema.kafka.Platform;
+import com.asbobryakov.flink_spring.schema.kafka.ProductMessage;
+import com.asbobryakov.flink_spring.schema.kafka.WrappedSinkMessage;
 import com.asbobryakov.flink_spring.testutils.annotation.FlinkJobTest;
 import com.asbobryakov.flink_spring.testutils.flink.sink.TestListSink;
-
+import lombok.SneakyThrows;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import lombok.SneakyThrows;
 
 import static com.asbobryakov.flink_spring.testutils.dto.ClickMessageTestBuilder.aClickMessage;
 import static java.lang.String.format;

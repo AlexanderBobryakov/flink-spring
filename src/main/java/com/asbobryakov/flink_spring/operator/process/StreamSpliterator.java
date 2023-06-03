@@ -1,14 +1,12 @@
 package com.asbobryakov.flink_spring.operator.process;
 
 import com.asbobryakov.flink_spring.operator.function.SerializablePredicate;
-
+import lombok.RequiredArgsConstructor;
 import org.apache.flink.streaming.api.functions.ProcessFunction;
 import org.apache.flink.util.Collector;
 import org.apache.flink.util.OutputTag;
 
 import java.util.Map;
-
-import lombok.RequiredArgsConstructor;
 
 /**
  * A function that splits events of a stream by predicates into OutputTags.

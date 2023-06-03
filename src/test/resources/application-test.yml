@@ -9,9 +9,14 @@ jobs:
       deduplicator:
         ttl:
           app: 7d
+  trigger-to-alert-job:
+    enabled: true
+    state-waiting: 10m
 
 kafka:
   group-id: group_id
   bootstrap-servers: localhost:29092
   topics:
     click-topic: 'click-topic'
+    trigger-topic: 'trigger-topic'
+    alert-topic: 'alert-topic'

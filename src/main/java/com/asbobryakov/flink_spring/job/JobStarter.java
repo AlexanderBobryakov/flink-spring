@@ -1,13 +1,13 @@
 package com.asbobryakov.flink_spring.job;
 
-import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Slf4j
@@ -15,6 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 public class JobStarter {
     private final StreamExecutionEnvironment environment;
     private final List<FlinkJob> jobs;
+
+    @Value("${flink.app-name}")
+    private String appName;
 
     @SneakyThrows
     public AutoCloseableJobClient startJobs() {
@@ -26,6 +29,6 @@ public class JobStarter {
             log.info("Register job '{}'", job.getClass().getSimpleName());
             job.registerJob(environment);
         }
-        return new AutoCloseableJobClient(environment.executeAsync());
+        return new AutoCloseableJobClient(environment.executeAsync(appName));
     }
 }

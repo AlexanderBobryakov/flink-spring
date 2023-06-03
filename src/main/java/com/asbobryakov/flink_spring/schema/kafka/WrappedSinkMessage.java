@@ -1,10 +1,10 @@
-package com.asbobryakov.flink_spring.schema;
-
-import java.io.Serializable;
+package com.asbobryakov.flink_spring.schema.kafka;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+
+import java.io.Serializable;
 
 @Getter
 @EqualsAndHashCode

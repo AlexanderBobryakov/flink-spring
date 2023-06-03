@@ -1,14 +1,12 @@
 package com.asbobryakov.flink_spring.operator.mapper;
 
-import com.asbobryakov.flink_spring.schema.ClickMessage;
-import com.asbobryakov.flink_spring.schema.ProductMessage;
-import com.asbobryakov.flink_spring.schema.WrappedSinkMessage;
-
-import org.apache.flink.api.common.functions.FlatMapFunction;
-import org.apache.flink.util.Collector;
-
+import com.asbobryakov.flink_spring.schema.kafka.ClickMessage;
+import com.asbobryakov.flink_spring.schema.kafka.ProductMessage;
+import com.asbobryakov.flink_spring.schema.kafka.WrappedSinkMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.flink.api.common.functions.FlatMapFunction;
+import org.apache.flink.util.Collector;
 
 @Slf4j
 @RequiredArgsConstructor

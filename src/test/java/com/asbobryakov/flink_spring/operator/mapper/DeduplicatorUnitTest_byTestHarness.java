@@ -1,5 +1,6 @@
 package com.asbobryakov.flink_spring.operator.mapper;
 
+import lombok.SneakyThrows;
 import org.apache.flink.api.common.time.Time;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.streaming.api.operators.StreamFlatMap;
@@ -14,8 +15,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
-
-import lombok.SneakyThrows;
 
 import static java.lang.String.format;
 import static org.junit.jupiter.api.Assertions.assertEquals;

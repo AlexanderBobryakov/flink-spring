@@ -2,7 +2,6 @@ package com.asbobryakov.flink_spring.testutils.kafka;
 
 
 import com.asbobryakov.flink_spring.properties.KafkaProperties;
-
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestConfiguration;
@@ -17,7 +16,9 @@ public class KafkaTopicCreatorConfig {
     @Bean
     public KafkaAdmin.NewTopics newTopics() {
         return new KafkaAdmin.NewTopics(
-            new NewTopic(kafkaProperties.getTopics().getClickTopic(), 1, (short) 1)
+                new NewTopic(kafkaProperties.getTopics().getClickTopic(), 1, (short) 1),
+                new NewTopic(kafkaProperties.getTopics().getTriggerTopic(), 1, (short) 1),
+                new NewTopic(kafkaProperties.getTopics().getAlertTopic(), 1, (short) 1)
         );
     }
 }

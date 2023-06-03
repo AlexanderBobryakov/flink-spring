@@ -1,7 +1,7 @@
 package com.asbobryakov.flink_spring.testutils.kafka;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import lombok.SneakyThrows;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
@@ -11,8 +11,6 @@ import org.springframework.kafka.core.KafkaTemplate;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
-
-import lombok.SneakyThrows;
 
 import static com.asbobryakov.flink_spring.config.ObjectMapperConfig.createObjectMapper;
 import static java.util.stream.Collectors.toSet;

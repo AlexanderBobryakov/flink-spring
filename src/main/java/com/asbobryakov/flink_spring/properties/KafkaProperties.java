@@ -1,13 +1,12 @@
 package com.asbobryakov.flink_spring.properties;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 @ConfigurationProperties("kafka")
 @ConstructorBinding
@@ -28,5 +27,9 @@ public class KafkaProperties {
     public static class Topics {
         @NotEmpty(message = "Click Topic cannot be null or empty")
         private final String clickTopic;
+        @NotEmpty(message = "Trigger Topic cannot be null or empty")
+        private final String triggerTopic;
+        @NotEmpty(message = "Alert Topic cannot be null or empty")
+        private final String alertTopic;
     }
 }

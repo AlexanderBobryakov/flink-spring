@@ -1,14 +1,13 @@
-package com.asbobryakov.flink_spring.schema;
+package com.asbobryakov.flink_spring.schema.kafka;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import lombok.Value;
 
 import java.io.IOException;
 import java.util.Locale;
-
-import lombok.Value;
 
 import static java.util.Objects.requireNonNullElse;
 

@@ -1,6 +1,7 @@
 package com.asbobryakov.flink_spring.testutils.extension;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.configuration.CoreOptions;
 import org.apache.flink.runtime.testutils.MiniClusterResourceConfiguration;
@@ -10,8 +11,6 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
-import lombok.extern.slf4j.Slf4j;
 
 import static org.junit.jupiter.api.extension.ExtensionContext.Namespace.GLOBAL;
 

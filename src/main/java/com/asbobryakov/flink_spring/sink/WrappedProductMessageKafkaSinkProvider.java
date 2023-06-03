@@ -1,16 +1,14 @@
 package com.asbobryakov.flink_spring.sink;
 
 import com.asbobryakov.flink_spring.properties.KafkaProperties;
-import com.asbobryakov.flink_spring.schema.ProductMessage;
-import com.asbobryakov.flink_spring.schema.WrappedSinkMessage;
-
+import com.asbobryakov.flink_spring.schema.kafka.ProductMessage;
+import com.asbobryakov.flink_spring.schema.kafka.WrappedSinkMessage;
+import lombok.RequiredArgsConstructor;
 import org.apache.flink.api.common.serialization.SerializationSchema;
 import org.apache.flink.api.connector.sink2.Sink;
 import org.apache.flink.connector.kafka.sink.KafkaRecordSerializationSchema;
 import org.apache.flink.connector.kafka.sink.KafkaSink;
 import org.springframework.stereotype.Component;
-
-import lombok.RequiredArgsConstructor;
 
 import static org.apache.flink.connector.base.DeliveryGuarantee.NONE;
 

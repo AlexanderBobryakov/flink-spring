@@ -1,20 +1,17 @@
 package com.asbobryakov.flink_spring.job;
 
 import com.asbobryakov.flink_spring.properties.KafkaProperties;
-import com.asbobryakov.flink_spring.schema.ProductMessage;
+import com.asbobryakov.flink_spring.schema.kafka.ProductMessage;
 import com.asbobryakov.flink_spring.testutils.annotation.E2ETest;
 import com.asbobryakov.flink_spring.testutils.kafka.TestKafkaFacade;
-
+import lombok.Cleanup;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
-import lombok.Cleanup;
-import lombok.SneakyThrows;
-
-import static com.asbobryakov.flink_spring.schema.Platform.Enum.APP;
+import static com.asbobryakov.flink_spring.schema.kafka.Platform.Enum.APP;
 import static com.asbobryakov.flink_spring.testutils.dto.ClickMessageTestBuilder.aClickMessage;
 import static java.time.Duration.ofSeconds;
 import static org.awaitility.Awaitility.await;
