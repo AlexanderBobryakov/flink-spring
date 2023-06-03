@@ -1,0 +1,24 @@
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.io.Serializable;
+import java.util.Objects;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class TestEvolvedClass implements Serializable {
+    private static final long serialVersionUID = 2;
+
+    @JsonProperty(value = "str_field")
+    private final String strField;
+
+    @JsonProperty(value = "new_field")
+    private final String newField;
+
+    @JsonCreator
+    public TestEvolvedClass(@JsonProperty(value = "str_field") String strField,
+                            @JsonProperty(value = "new_field") String newField) {
+        this.strField = strField;
+        this.newField = Objects.requireNonNullElse(newField, "default_value");
+    }
+}
