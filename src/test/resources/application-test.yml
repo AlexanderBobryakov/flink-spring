@@ -11,7 +11,7 @@ jobs:
           app: 7d
   trigger-to-alert-job:
     enabled: true
-    state-waiting: 10m
+    state-waiting: 10ms
 
 kafka:
   group-id: group_id
