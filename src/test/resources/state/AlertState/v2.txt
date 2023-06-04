@@ -1,5 +1,3 @@
-package com.asbobryakov.flink_spring.schema.state;
-
 import com.asbobryakov.flink_spring.schema.annotation.JacksonEvolvingState;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;

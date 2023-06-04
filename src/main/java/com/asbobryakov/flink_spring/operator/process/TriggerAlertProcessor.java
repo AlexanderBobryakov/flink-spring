@@ -6,6 +6,7 @@ import com.asbobryakov.flink_spring.operator.transformer.TriggerMessageToAlertSt
 import com.asbobryakov.flink_spring.schema.kafka.AlertMessage;
 import com.asbobryakov.flink_spring.schema.kafka.TriggerMessage;
 import com.asbobryakov.flink_spring.schema.state.AlertState;
+import com.asbobryakov.flink_spring.serialization.JacksonStateSerializer;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.state.StateTtlConfig;
 import org.apache.flink.api.common.state.ValueState;
@@ -50,7 +51,7 @@ public class TriggerAlertProcessor extends KeyedProcessFunction<String, TriggerM
                 .build();
 
         // alert state
-        final var alertDescriptor = new ValueStateDescriptor<>("alertState", AlertState.class);
+        final var alertDescriptor = new ValueStateDescriptor<>("alertState", new JacksonStateSerializer<>(AlertState.class));
         alertDescriptor.enableTimeToLive(defaultTtlConfig);
         alertState = getRuntimeContext().getState(alertDescriptor);
 

@@ -68,10 +68,11 @@ dependencies {
     testImplementation "org.testcontainers:kafka"
     testImplementation "org.awaitility:awaitility:${awaitilityVersion}"
     testImplementation "commons-io:commons-io:2.11.0"
+    testImplementation "org.reflections:reflections:0.10.2"
     testImplementation "org.jeasy:easy-random-core:5.0.0"
 
     testAnnotationProcessor 'org.projectlombok:lombok'
-    testCompileOnly 'org.projectlombok:lombok'
+    testImplementation 'org.projectlombok:lombok'
 }
 
 dependencyManagement {
