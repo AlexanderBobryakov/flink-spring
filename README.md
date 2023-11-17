@@ -9,4 +9,4 @@ ___
 
 ___
 ## Series of explanatory articles
-1. (rus) https://habr.com/ru/users/appp_master/publications/articles/
+1. (rus) [Habr](https://habr.com/ru/companies/ru_mts/articles/772898/)
