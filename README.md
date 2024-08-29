@@ -16,3 +16,4 @@ ___
 5. [Как провести unit-тестирование Flink-операторов: TestHarness](https://habr.com/ru/companies/ru_mts/articles/801693/)
 6. [Unit-тестирование Flink-операторов, Job: Flink MiniCluster](https://habr.com/ru/companies/ru_mts/articles/812905/)
 7. [E2E-тестирование Flink Job с Kafka](https://habr.com/ru/companies/ru_mts/articles/819681/)
+8. [Отправка уведомлений по таймеру в Apache Flink](https://habr.com/ru/companies/ru_mts/articles/839520/)
