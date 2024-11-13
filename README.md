@@ -17,3 +17,5 @@ ___
 6. [Unit-тестирование Flink-операторов, Job: Flink MiniCluster](https://habr.com/ru/companies/ru_mts/articles/812905/)
 7. [E2E-тестирование Flink Job с Kafka](https://habr.com/ru/companies/ru_mts/articles/819681/)
 8. [Отправка уведомлений по таймеру в Apache Flink](https://habr.com/ru/companies/ru_mts/articles/839520/)
+9. [Apache Flink: Unit и E2E-тестирование оператора с таймерами в Apache Flink](https://habr.com/ru/companies/ru_mts/articles/853200/)
+10. [Apache Flink: Сериализация и JacksonStateSerializer](https://habr.com/ru/companies/ru_mts/articles/856774/)
