@@ -19,3 +19,5 @@ ___
 8. [Отправка уведомлений по таймеру в Apache Flink](https://habr.com/ru/companies/ru_mts/articles/839520/)
 9. [Apache Flink: Unit и E2E-тестирование оператора с таймерами в Apache Flink](https://habr.com/ru/companies/ru_mts/articles/853200/)
 10. [Apache Flink: Сериализация и JacksonStateSerializer](https://habr.com/ru/companies/ru_mts/articles/856774/)
+11. [Apache Flink: тестирование собственного сериализатора состояния](https://habr.com/ru/companies/ru_mts/articles/873436/)
+12. [Apache Flink: использование и автоматическая проверка собственного сериализатора состояния](https://habr.com/ru/companies/ru_mts/articles/878070/)
